@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    eslint:
+      specifier: ^9.20.1
+      version: 9.20.1
     lefthook:
       specifier: ^1.11.13
       version: 1.11.13
@@ -88,7 +91,7 @@ importers:
         specifier: ^8.24.1
         version: 8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
       eslint:
-        specifier: ^9.20.1
+        specifier: 'catalog:'
         version: 9.20.1(jiti@2.4.2)
       eslint-config-prettier:
         specifier: ^9.1.0
