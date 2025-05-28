@@ -2,13 +2,16 @@
 name: Changeset version
 
 on:
-  push:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
     branches:
       - main
 
-# permissions:
-#   pull-requests: write
-#   contents: write
+permissions:
+  pull-requests: write
+  contents: write
 
 env:
   CI: true
