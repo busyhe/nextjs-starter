@@ -8,6 +8,6 @@ prepare-commit-msg:
   commands:
     commitizen:
       interactive: true
-      run: pnpm czg
+      run: pnpm czg --hook
       env:
         LEFTHOOK: '0'
