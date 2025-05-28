@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "busyhe/nextjs-starter"
+    }
+  ],
   "commit": false,
   "fixed": [
     [
@@ -11,7 +16,10 @@
   "snapshot": {
     "prereleaseTemplate": "{tag}-{datetime}"
   },
-  "privatePackages": { "version": true, "tag": true },
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  },
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",

@@ -9,7 +9,8 @@
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint",
-    "version": "pnpm exec changeset version && pnpm install --no-frozen-lockfile"
+    "version": "pnpm exec changeset version && pnpm install --no-frozen-lockfile",
+    "publish": "pnpm exec changeset tag"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.1",
