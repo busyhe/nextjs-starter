@@ -6,19 +6,37 @@ settings:
 
 catalogs:
   default:
+    '@release-it/bumper':
+      specifier: ^7.0.5
+      version: 7.0.5
+    czg:
+      specifier: ^1.11.1
+      version: 1.11.1
     eslint:
       specifier: ^9.20.1
       version: 9.20.1
     lefthook:
       specifier: ^1.11.13
       version: 1.11.13
+    prettier:
+      specifier: ^3.5.1
+      version: 3.5.1
+    release-it:
+      specifier: ^19.0.2
+      version: 19.0.2
+    turbo:
+      specifier: ^2.4.2
+      version: 2.4.2
+    typescript:
+      specifier: ^5.7.3
+      version: 5.7.3
 
 importers:
 
   .:
     devDependencies:
       '@release-it/bumper':
-        specifier: ^7.0.5
+        specifier: 'catalog:'
         version: 7.0.5(release-it@19.0.2(@types/node@20.17.19))
       '@workspace/eslint-config':
         specifier: workspace:*
@@ -27,22 +45,22 @@ importers:
         specifier: workspace:*
         version: link:packages/typescript-config
       czg:
-        specifier: ^1.11.1
+        specifier: 'catalog:'
         version: 1.11.1
       lefthook:
         specifier: 'catalog:'
         version: 1.11.13
       prettier:
-        specifier: ^3.5.1
+        specifier: 'catalog:'
         version: 3.5.1
       release-it:
-        specifier: ^19.0.2
+        specifier: 'catalog:'
         version: 19.0.2(@types/node@20.17.19)
       turbo:
-        specifier: ^2.4.2
+        specifier: 'catalog:'
         version: 2.4.2
       typescript:
-        specifier: 5.7.3
+        specifier: 'catalog:'
         version: 5.7.3
 
   apps/web:
