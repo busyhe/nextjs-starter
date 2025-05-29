@@ -11,7 +11,8 @@
     "autoGenerate": true
   },
   "npm": {
-    "publish": false
+    "publish": false,
+    "allowSameVersion": true
   },
   "plugins": {
     "@release-it/bumper": {
