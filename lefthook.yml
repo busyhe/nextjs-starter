@@ -2,8 +2,10 @@ pre-commit:
   parallel: true
   commands:
     lint:
-      run: pnpm prettier --cache --ignore-unknown --write {staged_files} && pnpm eslint --cache --fix {staged_files}
+      run: pnpm prettier --cache --ignore-unknown --write {staged_files}
       glob: '*.{ts,tsx,md}'
+      stage_fixed: true
+      
 prepare-commit-msg:
   commands:
     commitizen:
