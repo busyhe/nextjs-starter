@@ -3,28 +3,12 @@ name: Release
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
-    inputs:
-      release_type:
-        description: 'Release type'
-        required: true
-        default: 'patch'
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
+      - master
 
 jobs:
   release:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,66 +20,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: '.node-version'
+          cache: 'pnpm'
 
-      - name: Setup pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10.4.1
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Check version synchronization (before)
-        run: pnpm version:check
-
-      - name: Build packages
+      - name: Build
         run: pnpm build
-
-      - name: Run tests
-        run: pnpm test || echo "No tests found"
 
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Release (Auto)
-        if: github.event_name == 'push'
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm release --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Release (Manual)
-        if: github.event_name == 'workflow_dispatch'
-        run: pnpm release ${{ github.event.inputs.release_type }} --ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check version synchronization (after)
-        run: pnpm version:check
-
-      - name: Create summary
-        if: always()
-        run: |
-          echo "## Release Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "- **Release Type**: ${{ github.event.inputs.release_type }}" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "- **Release Type**: patch (auto)" >> $GITHUB_STEP_SUMMARY
-          fi
-          echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY

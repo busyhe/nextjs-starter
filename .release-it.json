@@ -15,50 +15,8 @@
   },
   "plugins": {
     "@release-it/bumper": {
-      "in": [
-        {
-          "file": "package.json",
-          "path": "version"
-        },
-        {
-          "file": "apps/web/package.json",
-          "path": "version"
-        },
-        {
-          "file": "packages/ui/package.json",
-          "path": "version"
-        },
-        {
-          "file": "packages/typescript-config/package.json",
-          "path": "version"
-        },
-        {
-          "file": "packages/eslint-config/package.json",
-          "path": "version"
-        }
-      ],
-      "out": [
-        {
-          "file": "package.json",
-          "path": "version"
-        },
-        {
-          "file": "apps/web/package.json",
-          "path": "version"
-        },
-        {
-          "file": "packages/ui/package.json",
-          "path": "version"
-        },
-        {
-          "file": "packages/typescript-config/package.json",
-          "path": "version"
-        },
-        {
-          "file": "packages/eslint-config/package.json",
-          "path": "version"
-        }
-      ]
+      "in": "package.json",
+      "out": ["package.json", "packages/*/package.json", "apps/*/package.json"]
     }
   }
 } 
