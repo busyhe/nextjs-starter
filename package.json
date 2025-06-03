@@ -1,7 +1,7 @@
 {
   "name": "nextjs-starter",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "build": "turbo build",
     "changeset": "pnpm exec changeset",
@@ -9,7 +9,7 @@
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint",
-    "release": "LEFTHOOK=0 && bumpp package.json apps/*/package.json --all"
+    "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all"
   },
   "devDependencies": {
     "@release-it/bumper": "catalog:",
