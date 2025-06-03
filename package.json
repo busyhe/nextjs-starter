@@ -12,15 +12,12 @@
     "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all"
   },
   "devDependencies": {
-    "@release-it/bumper": "catalog:",
-    "@release-it/conventional-changelog": "^10.0.1",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "bumpp": "^10.1.1",
     "czg": "catalog:",
     "lefthook": "catalog:",
     "prettier": "catalog:",
-    "release-it": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"
   },
