@@ -1,7 +1,7 @@
 {
   "name": "nextjs-starter",
-  "version": "0.0.3",
   "private": true,
+  "version": "0.1.5",
   "scripts": {
     "build": "turbo build",
     "changeset": "pnpm exec changeset",
@@ -9,16 +9,15 @@
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint",
-    "release": "release-it"
+    "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all"
   },
   "devDependencies": {
-    "@release-it/bumper": "catalog:",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "bumpp": "^10.1.1",
     "czg": "catalog:",
     "lefthook": "catalog:",
     "prettier": "catalog:",
-    "release-it": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:"
   },
