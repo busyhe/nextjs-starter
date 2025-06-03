@@ -18,6 +18,13 @@
     "@release-it/bumper": {
       "in": "package.json",
       "out": ["package.json", "packages/*/package.json", "apps/*/package.json"]
+    },
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": false
     }
+  },
+  "hooks": {
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 } 

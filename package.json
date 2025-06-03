@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@release-it/bumper": "catalog:",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "czg": "catalog:",
