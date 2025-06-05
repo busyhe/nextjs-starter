@@ -14,7 +14,7 @@
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
-    "bumpp": "^10.1.1",
+    "bumpp": "catalog:",
     "czg": "catalog:",
     "lefthook": "catalog:",
     "prettier": "catalog:",
