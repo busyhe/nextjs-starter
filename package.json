@@ -6,6 +6,7 @@
     "build": "turbo build",
     "changeset": "pnpm exec changeset",
     "commit": "czg",
+    "clean": "node ./scripts/clean.mjs",
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint",
@@ -14,7 +15,7 @@
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
-    "bumpp": "^10.1.1",
+    "bumpp": "catalog:",
     "czg": "catalog:",
     "lefthook": "catalog:",
     "prettier": "catalog:",
