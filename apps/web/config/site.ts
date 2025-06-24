@@ -4,8 +4,9 @@ export const siteConfig = {
   ogImage: 'https://ui.shadcn.com/og.jpg',
   description: 'A starter template for Next.js 15 with Shadcn UI and Tailwind CSS',
   links: {
-    twitter: 'https://twitter.com/shadcn',
-    github: 'https://github.com/shadcn-ui/ui'
+    homepage: 'https://busyhe.com',
+    twitter: 'https://twitter.com/busyhe_',
+    github: 'https://github.com/busyhe'
   }
 }
 

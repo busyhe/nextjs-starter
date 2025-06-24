@@ -1,12 +1,16 @@
-import { Button } from '@workspace/ui/components/button'
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
   return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-      </div>
+    <div data-wrapper="" className="border-grid flex flex-1 flex-col min-h-svh">
+      <SiteHeader />
+      <main className="flex flex-1 flex-col container-wrapper">
+        <div className="container">
+          <h1 className="text-2xl font-bold">Hello World</h1>
+        </div>
+      </main>
+      <SiteFooter />
     </div>
   )
 }
