@@ -5,11 +5,12 @@
   "scripts": {
     "build": "turbo build",
     "changeset": "pnpm exec changeset",
-    "commit": "czg",
     "clean": "node ./scripts/clean.mjs",
+    "commit": "czg",
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint",
+    "prepare": "git config --local core.editor cat",
     "release": "LEFTHOOK=0 bumpp package.json apps/*/package.json --all"
   },
   "devDependencies": {
