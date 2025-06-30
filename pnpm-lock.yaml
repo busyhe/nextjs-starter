@@ -146,9 +146,6 @@ importers:
       '@workspace/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      clsx:
-        specifier: 'catalog:'
-        version: 2.1.1
       lucide-react:
         specifier: 'catalog:'
         version: 0.475.0(react@19.0.0)
@@ -164,9 +161,6 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.0.0(react@19.0.0)
-      tailwind-merge:
-        specifier: 'catalog:'
-        version: 3.0.1
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
