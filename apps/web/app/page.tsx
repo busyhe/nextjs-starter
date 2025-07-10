@@ -6,7 +6,7 @@ export default function Page() {
     <div data-wrapper="" className="border-grid flex flex-1 flex-col min-h-svh">
       <SiteHeader />
       <main className="flex flex-1 flex-col container-wrapper">
-        <div className="container">
+        <div className="container py-6">
           <h1 className="text-2xl font-bold">Hello World</h1>
         </div>
       </main>
