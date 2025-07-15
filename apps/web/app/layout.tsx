@@ -1,8 +1,8 @@
-import { Metadata, Viewport } from 'next'
+import { Metadata } from 'next'
 import '@workspace/ui/globals.css'
 import { Providers } from '@/components/providers'
 import { fontSans, fontMono } from '@/lib/fonts'
-import { META_THEME_COLORS, siteConfig } from '@/config/site'
+import { siteConfig } from '@/config/site'
 
 export const metadata: Metadata = {
   title: {
@@ -46,10 +46,6 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png'
   }
-}
-
-export const viewport: Viewport = {
-  themeColor: META_THEME_COLORS.light
 }
 
 export default function RootLayout({
