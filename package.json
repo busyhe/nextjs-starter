@@ -29,7 +29,10 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "lefthook"
+      "@tailwindcss/oxide",
+      "core-js-pure",
+      "lefthook",
+      "sharp"
     ]
   }
 }
