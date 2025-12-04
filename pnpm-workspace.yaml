@@ -3,16 +3,16 @@ packages:
   - packages/*
 
 catalog:
-  '@eslint/js': ^9.32.0
-  '@next/eslint-plugin-next': ^15.4.4
-  '@radix-ui/react-slot': ^1.2.3
-  '@tailwindcss/postcss': ^4.1.11
-  '@turbo/gen': ^2.5.5
-  '@types/node': ^24.1.0
-  '@types/react': ^19.1.8
-  '@types/react-dom': ^19.1.6
-  '@typescript-eslint/eslint-plugin': ^8.38.0
-  '@typescript-eslint/parser': ^8.38.0
+  "@eslint/js": ^9.32.0
+  "@next/eslint-plugin-next": ^15.4.4
+  "@radix-ui/react-slot": ^1.2.3
+  "@tailwindcss/postcss": ^4.1.11
+  "@turbo/gen": ^2.5.5
+  "@types/node": ^24.1.0
+  "@types/react": ^19.1.8
+  "@types/react-dom": ^19.1.6
+  "@typescript-eslint/eslint-plugin": ^8.38.0
+  "@typescript-eslint/parser": ^8.38.0
   bumpp: ^10.2.0
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
@@ -26,11 +26,11 @@ catalog:
   globals: ^16.3.0
   lefthook: ^1.12.2
   lucide-react: ^0.526.0
-  next: ^15.4.4
+  next: 15.4.8
   next-themes: ^0.4.6
   prettier: ^3.6.2
-  react: ^19.1.0
-  react-dom: ^19.1.0
+  react: 19.1.2
+  react-dom: 19.1.2
   tailwind-merge: ^3.3.1
   tailwindcss: ^4.1.11
   turbo: ^2.5.5
