@@ -29,7 +29,7 @@
     "typescript": "catalog:"
   },
   "exports": {
-    "./globals.css": "./src/styles/globals.css",
+    "./globals.css": "./src/globals.css",
     "./postcss.config": "./postcss.config.mjs",
     "./lib/*": "./src/lib/*.ts",
     "./components/*": "./src/components/*.tsx",
