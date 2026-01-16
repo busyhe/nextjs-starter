@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     creator: '@busyhe'
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png'
+    icon: 'https://assets.busyhe.com/touxiang60_60.png',
+    shortcut: 'https://assets.busyhe.com/favicon.ico'
   }
 }
 
