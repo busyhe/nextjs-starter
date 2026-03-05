@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   release:
@@ -15,10 +15,51 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           registry-url: https://registry.npmjs.org/
+
+      # Generate changelog and create release
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      # Extract version from tag
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      # Setup Docker Buildx with QEMU for multi-arch
+      - uses: docker/setup-qemu-action@v3
+
+      - uses: docker/setup-buildx-action@v3
+
+      # Build and export amd64 image
+      - name: Build amd64 image
+        run: |
+          docker buildx build \
+            --platform linux/amd64 \
+            --output type=docker,dest=nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-amd64.tar \
+            -t nextjs-starter:${{ steps.version.outputs.VERSION }}-linux-amd64 \
+            .
+
+      # Build and export arm64 image
+      - name: Build arm64 image
+        run: |
+          docker buildx build \
+            --platform linux/arm64 \
+            --output type=docker,dest=nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-arm64.tar \
+            -t nextjs-starter:${{ steps.version.outputs.VERSION }}-linux-arm64 \
+            .
+
+      # Upload image tarballs to GitHub Release
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-amd64.tar
+            nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-arm64.tar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
