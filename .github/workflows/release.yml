@@ -41,25 +41,25 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/amd64 \
-            --output type=docker,dest=nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-amd64.tar \
+            --output type=docker \
             -t nextjs-starter:${{ steps.version.outputs.VERSION }}-linux-amd64 \
-            .
+            . | gzip > nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-amd64.tar.gz
 
       # Build and export arm64 image
       - name: Build arm64 image
         run: |
           docker buildx build \
             --platform linux/arm64 \
-            --output type=docker,dest=nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-arm64.tar \
+            --output type=docker \
             -t nextjs-starter:${{ steps.version.outputs.VERSION }}-linux-arm64 \
-            .
+            . | gzip > nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-arm64.tar.gz
 
       # Upload image tarballs to GitHub Release
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-amd64.tar
-            nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-arm64.tar
+            nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-amd64.tar.gz
+            nextjs-starter-${{ steps.version.outputs.VERSION }}-linux-arm64.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
