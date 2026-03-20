@@ -5,6 +5,7 @@
   "scripts": {
     "build": "turbo build",
     "changeset": "pnpm exec changeset",
+    "check-types": "turbo check-types",
     "clean": "node ./scripts/clean.mjs",
     "commit": "czg",
     "dev": "turbo dev",
