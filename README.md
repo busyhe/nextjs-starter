@@ -110,55 +110,6 @@ pnpm typecheck
 
 Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
-## 🐳 Docker Deployment
-
-### Build & Run
-
-```bash
-# Build image
-docker build -t nextjs-starter .
-
-# Run container
-docker run -p 3000:3000 nextjs-starter
-```
-
-### Docker Compose
-
-```bash
-# Create .env file
-cp apps/web/.env.example .env
-
-# Start service
-docker compose up -d
-
-# View logs
-docker compose logs -f
-
-# Stop service
-docker compose down
-```
-
-### Using Pre-built Images from Releases
-
-Multi-architecture Docker images (`amd64` / `arm64`) are available on [GitHub Releases](https://github.com/busyhe/nextjs-starter/releases). Download the `.tar` file matching your platform:
-
-```bash
-# Download (example)
-wget https://github.com/busyhe/nextjs-starter/releases/download/v0.6.2/nextjs-starter-v0.6.2-linux-amd64.tar
-
-# Load image
-docker load -i nextjs-starter-v0.6.2-linux-amd64.tar
-
-# Run
-docker run -p 3000:3000 nextjs-starter:v0.6.2-linux-amd64
-```
-
-### Environment Variables
-
-| Variable            | Description         | Default |
-| ------------------- | ------------------- | ------- |
-| `NEXT_PUBLIC_GA_ID` | Google Analytics ID | `""`    |
-
 ## 📦 Package Management
 
 ### Adding Dependencies
