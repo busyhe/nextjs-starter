@@ -13,11 +13,15 @@ import { config as baseConfig } from "./base.js"
 export const nextJsConfig = [
   ...baseConfig,
   {
+    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"],
+  },
+  {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {
-        ...globals.serviceworker,
+        ...globals.browser,
+        ...globals.node,
       },
     },
   },
